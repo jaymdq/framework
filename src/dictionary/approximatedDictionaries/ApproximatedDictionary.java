@@ -253,7 +253,7 @@ public class ApproximatedDictionary implements Dictionary {
 				}	
 			}	
 		}
-
+		
 		Collections.sort(out, new ChunkComparatorByScore());
 		Vector<Chunk> realOut = new Vector<Chunk>();
 
