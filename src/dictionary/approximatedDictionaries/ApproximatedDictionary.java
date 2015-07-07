@@ -230,7 +230,7 @@ public class ApproximatedDictionary implements Dictionary {
 
 				for (DictionaryEntryWithDistance entry : results){
 					for (String category : entry.getCategory()){
-						Chunk toAdd = new Chunk(startsPositions.elementAt(i),endsPositions.elementAt(i),category,text,Score.getInstance().getAproximatedScore(entry.getDistance(), entry.getText().length()));
+						Chunk toAdd = new Chunk(startsPositions.elementAt(i),endsPositions.elementAt(j),category,text,Score.getInstance().getAproximatedScore(entry.getDistance(), entry.getText().length()));
 
 						if (out.isEmpty())
 							out.add(toAdd);
