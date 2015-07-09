@@ -101,13 +101,10 @@ public class FixedWindow {
 		int out = 0;
 		Vector<Pair<String, Vector<Chunk>>> tempTweets = getTweetsWithSegment(text,category);
 
-		for (Pair<String, Vector<Chunk>> pair1 : tempTweets){
-			String tmp = pair1.getPair1().toLowerCase();
-			int x = 0;
-			while ( (x =  tmp.indexOf(text, x)) >= 0 ){
-				out++;
-				x += text.length();
-			}
+		for (Pair<String, Vector<Chunk>> pair : tempTweets){
+			for(Chunk c : pair.getPair2())
+				if(c.getText().toLowerCase().equals(text.toLowerCase()) && c.getCategoryType().equals(category))
+					out++;
 		}
 
 		return out;
