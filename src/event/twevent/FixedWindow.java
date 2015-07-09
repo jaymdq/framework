@@ -45,7 +45,7 @@ public class FixedWindow {
 	public Vector<Pair<String, Vector<Chunk>>> getTweets(){
 		return this.tweets;
 	}
-	
+
 	public int getNumberOfTweetsInWindow(){
 		return this.tweets.size();
 	}
@@ -117,16 +117,17 @@ public class FixedWindow {
 		Vector<Pair<String, Vector<Chunk>>> out = new Vector<Pair<String, Vector<Chunk>>>();
 
 		for (Pair<String, Vector<Chunk>> tweet : this.tweets){
-			if (tweet.getPair1().toLowerCase().contains(text)){
 
-				for (Chunk chunk : tweet.getPair2()){
-					if (chunk.getCategoryType().equals(category) && ! out.contains(tweet)){
-						out.add(tweet);
-
-					}
+			Vector<Chunk> chunks = tweet.getPair2();
+			
+			for (Chunk chunk : chunks){
+				if (chunk.getText().toLowerCase().equals(text) && chunk.getCategoryType().equals(category) && ! out.contains(tweet)){
+					out.add(tweet);
+					break;
 				}
 			}
 		}
+		
 		return out;
 	}
 
