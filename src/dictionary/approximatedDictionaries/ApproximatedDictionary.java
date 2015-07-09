@@ -255,6 +255,7 @@ public class ApproximatedDictionary implements Dictionary {
 		}
 		
 		Collections.sort(out, new ChunkComparatorByScore());
+		Collections.reverse(out);
 		Vector<Chunk> realOut = new Vector<Chunk>();
 
 		for (Chunk chunk : out){
